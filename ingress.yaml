@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: vending
+  annotations:
+    kubernetes.io/ingress.class: "kong"
+spec:
+  rules:
+    - host: vending.kong.example
+      http:
+        paths:
+          - path: "/"
+            backend:
+              serviceName: vending
+              servicePort: http
